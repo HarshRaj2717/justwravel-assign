@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Rating } from "@material-tailwind/react";
+import Link from "next/link";
 
 export default function Card({
   id,
@@ -29,7 +30,12 @@ export default function Card({
             <div className="badge badge-outline p-2">{category}</div>
           </div>
           <div className="card-actions pt-5">
-            <button className="btn btn-primary">$ {price}</button>
+            <Link
+              href={`/product/${category}/${id}`}
+              className="btn btn-primary"
+            >
+              $ {price}
+            </Link>
           </div>
         </div>
       </div>

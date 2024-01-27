@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { fetchAllProducts } from "./apis";
 import Card from "./components/card";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -67,6 +68,7 @@ export default function Home() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
+
       <div className="hero min-h-screen bg-base-200 py-5">
         {/* Display the filtered products using Card component */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
@@ -77,6 +79,8 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </main>
   );
 }

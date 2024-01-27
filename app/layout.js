@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,12 +8,12 @@ export const metadata = {
   description: "Built for JustWravel",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>
+        {modal}
         {children}
-        <Footer />
       </body>
     </html>
   );
