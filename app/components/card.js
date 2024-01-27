@@ -41,7 +41,7 @@ export default function Card({
   rating,
 }) {
   return (
-    <div className="card  h-auto m-4 lg:w-96 lg:h-96 bg-base-100 shadow-xl">
+    <div className="card h-auto md:h-96 bg-base-100 shadow-xl">
       <figure>
         <Image src={image} width={500} height={500} alt={"Product Image"} />
       </figure>

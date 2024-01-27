@@ -71,7 +71,7 @@ export default function Home() {
 
       <div className="hero min-h-screen bg-base-200 py-5">
         {/* Display the filtered products using Card component */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-2 mx-6">
           {filteredProducts.map((product) => (
             <div key={product.id}>
               <Card {...product} />
