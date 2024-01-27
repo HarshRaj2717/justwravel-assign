@@ -1,59 +1,34 @@
-"use client";
 import { fetchSingleProduct } from "@/app/apis";
-import Image from "next/image";
-import { Rating } from "@material-tailwind/react";
-import { useState, useEffect } from "react";
+import DetailPage from "@/app/components/DetailPage";
+import Footer from "@/app/components/footer";
+import Navbar from "@/app/components/navbar";
+import Link from "next/link";
 
-export default function Product({ params }) {
-  const [product, setProduct] = useState({});
+export const cache = "no-store";
 
+const getProduct = async (id) => {
+  try {
+    const data = await fetchSingleProduct(id);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export default async function Product({ params }) {
   // Fetch data when the component mounts
-  useEffect(() => {
-    async function fetchData() {
-      const data = await fetchSingleProduct(params.id);
-      if (data) {
-        setProduct(data);
-      }
-      console.log(product);
-    }
-    fetchData();
-  }, [null]);
+  const product = await getProduct(params.id);
 
   return (
-    <main>
-      {Object.keys(product).length !== 0 && (
-        <div className="card lg:card-side h-auto m-4 bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src={product.image}
-              width={500}
-              height={500}
-              alt={"Product Image"}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{product.title}</h2>
-            <p>{product.description}</p>
-            <div className="flex">
-              <div className="card-actions flex-1 flex-col pt-3">
-                <div className="flex">
-                  <Rating value={Math.round(product.rating.rate)} readonly />
-                  <div className="font-medium text-blue-gray-500 p-1">
-                    {product.rating.count}
-                  </div>
-                </div>
-                <div className="badge badge-outline p-2">
-                  {product.category}
-                </div>
-              </div>
-              <div className="card-actions pt-5">
-                <button className="btn btn-primary">Buy for $ {product.price}</button>
-                <button className="btn btn-outline">Close</button>
-              </div>
-            </div>
-          </div>
+    <main className="hero min-h-screen bg-base-300">
+      <div className="hero-content flex-col lg:my-10">
+        <div className="bg-base-100 shadow-lg rounded-xl">
+          <DetailPage {...product} />
         </div>
-      )}
+        <Link href={"/"} className="btn btn-outline">
+          Go Back Home
+        </Link>
+      </div>
     </main>
   );
 }

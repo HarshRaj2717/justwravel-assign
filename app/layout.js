@@ -8,13 +8,14 @@ export const metadata = {
   description: "Built for JustWravel",
 };
 
-export default function RootLayout({ children, modal}) {
+export default function RootLayout({ children, modal }) {
   return (
-    <html lang="en" data-theme="winter">
+    <html lang="en">
       <body className={inter.className}>
+        <div id="modal-root" />
         {modal}
         {children}
-      </body>
+        </body>
     </html>
   );
 }

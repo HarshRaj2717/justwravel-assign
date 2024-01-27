@@ -14,7 +14,6 @@ export async function fetchAllProducts() {
   }
 }
 
-
 export async function fetchSingleProduct(id) {
   try {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -28,4 +27,3 @@ export async function fetchSingleProduct(id) {
     return null;
   }
 }
-
