@@ -1,5 +1,4 @@
 import { fetchSingleProduct } from "@/app/apis";
-import DetailPage from "@/app/components/DetailPage";
 import Modal from "./Modal";
 
 export const cache = "no-store";

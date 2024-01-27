@@ -71,3 +71,29 @@ export default function Card({
     </div>
   );
 }
+
+export function LoadingCard() {
+  return (
+    <div className="card animate-pulse h-auto md:h-96 bg-base-100 shadow-xl">
+      <figure className="border-2 border-gray-400">
+        <Image width={500} height={500} alt={""} />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">...</h2>
+        <p className="line-clamp-2">...</p>
+        <div className="flex">
+          <div className="card-actions flex-1 flex-col pt-3">
+            <div className="flex">
+              <Rating value={0} />
+              <div className="font-medium text-blue-gray-500 p-1"></div>
+            </div>
+            <div className="badge badge-outline p-2">---</div>
+          </div>
+          <div className="card-actions pt-5">
+            <button className="btn btn-primary">$ ---</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

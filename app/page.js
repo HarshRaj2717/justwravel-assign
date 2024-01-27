@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { fetchAllProducts } from "./apis";
-import Card from "./components/card";
+import Card, { LoadingCard } from "./components/card";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 
@@ -68,6 +68,19 @@ export default function Home() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
+
+      {/* When products aren't fetched yet... */}
+      {products.length === 0 && (
+        <div className="hero min-h-screen bg-base-200 py-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-2 mx-6">
+            {Array.from({ length: 20 }, (_, index) => (
+              <div key={index + 1}>
+                <LoadingCard />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="hero min-h-screen bg-base-200 py-5">
         {/* Display the filtered products using Card component */}
