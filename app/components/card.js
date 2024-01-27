@@ -54,7 +54,7 @@ export default function Card({
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p className="line-clamp-2">{description}</p>
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row">
           <div className="card-actions flex-1 flex-col pt-3">
             <div className="flex">
               <Rating value={Math.round(rating.rate)} />
@@ -93,7 +93,7 @@ export function LoadingCard() {
       <div className="card-body">
         <h2 className="card-title">...</h2>
         <p className="line-clamp-2">...</p>
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row">
           <div className="card-actions flex-1 flex-col pt-3">
             <div className="flex">
               <Rating value={0} />
