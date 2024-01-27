@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function Rating({ value }) {
+export function Rating({ value }) {
   function Star({ index }) {
     return (
       <svg
@@ -41,10 +41,16 @@ export default function Card({
   rating,
 }) {
   return (
-    <div className="card h-auto md:h-96 bg-base-100 shadow-xl">
-      <figure>
-        <Image src={image} width={500} height={500} alt={"Product Image"} />
-      </figure>
+    <div className="card h-full bg-base-100 shadow-xl">
+      <div className="h-96 p-4">
+        <Image
+          className="h-full w-auto mx-auto"
+          src={image}
+          width={500}
+          height={500}
+          alt={"Product Image"}
+        />
+      </div>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p className="line-clamp-2">{description}</p>
@@ -63,7 +69,7 @@ export default function Card({
               href={`/product/${category}/${id}`}
               className="btn btn-primary"
             >
-              $ {price}
+              Buy for $ {price}
             </Link>
           </div>
         </div>
@@ -74,10 +80,16 @@ export default function Card({
 
 export function LoadingCard() {
   return (
-    <div className="card animate-pulse h-auto md:h-96 bg-base-100 shadow-xl">
-      <figure className="border-2 border-gray-400">
-        <Image width={500} height={500} alt={""} />
-      </figure>
+    <div className="card h-full bg-base-100 shadow-xl animate-pulse">
+      <div className="h-96 p-4">
+        <Image
+          src={"/product.png"}
+          className="h-full w-auto mx-auto"
+          width={500}
+          height={500}
+          alt={""}
+        />
+      </div>
       <div className="card-body">
         <h2 className="card-title">...</h2>
         <p className="line-clamp-2">...</p>
@@ -90,7 +102,7 @@ export function LoadingCard() {
             <div className="badge badge-outline p-2">---</div>
           </div>
           <div className="card-actions pt-5">
-            <button className="btn btn-primary">$ ---</button>
+            <button className="btn btn-primary">Buy for $ ---</button>
           </div>
         </div>
       </div>

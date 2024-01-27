@@ -1,5 +1,6 @@
 import { fetchSingleProduct } from "@/app/apis";
 import Modal from "./Modal";
+import DetailPage from "@/app/components/DetailPage";
 
 export const cache = "no-store";
 
@@ -17,6 +18,8 @@ export default async function Product({ params }) {
   const product = await getProduct(params.id);
 
   return (
-    <Modal id={product.id} title={product.title} category={product.category} />
+    <Modal>
+      <DetailPage {...product} />
+    </Modal>
   );
 }
