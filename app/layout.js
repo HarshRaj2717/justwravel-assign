@@ -8,7 +8,7 @@ export const metadata = {
   description: "Built for JustWravel",
 };
 
-export default function RootLayout({ children, modal }) {
+export default function RootLayout({ children, modal}) {
   return (
     <html lang="en" data-theme="winter">
       <body className={inter.className}>

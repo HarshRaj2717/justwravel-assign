@@ -47,7 +47,9 @@ export default function Product({ params }) {
                 </div>
               </div>
               <div className="card-actions pt-5">
-                <button className="btn btn-primary">Buy for $ {product.price}</button>
+                <button className="btn btn-primary">
+                  Buy for $ {product.price}
+                </button>
                 <button className="btn btn-outline">Close</button>
               </div>
             </div>
