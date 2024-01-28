@@ -53,7 +53,7 @@ export default function Card({
       </div>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
-        <p className="line-clamp-2">{description}</p>
+        <p><span className="line-clamp-2">{description}</span></p>
         <div className="flex flex-col lg:flex-row">
           <div className="card-actions flex-1 flex-col pt-3">
             <div className="flex">
